@@ -1,0 +1,391 @@
+/* --- RESET BÁSICO Y VARIABLES DE COLOR --- */
+:root {
+    --color-primario: #00A8FF; /* Azul eléctrico vibrante */
+    --color-fondo: #121212;      /* Negro/Gris muy oscuro */
+    --color-superficie: #1E1E1E; /* Gris oscuro para tarjetas */
+    --color-texto: #E0E0E0;      /* Gris claro para texto */
+    --color-texto-secundario: #A0A0A0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Para el desplazamiento suave */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* --- ESTILOS GENERALES --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+h1, h2, h3 {
+    color: white;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
+h2 span { color: var(--color-primario); }
+
+p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primario);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: white;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+.header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    z-index: 10; /* Para que esté sobre el menú móvil */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo img {
+    height: 45px; /* Ajusta la altura de tu logo */
+    width: auto;
+    border-radius: 5px; /* Opcional: si quieres bordes redondeados */
+}
+ 
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links a {
+    color: var(--color-texto);
+    margin-left: 2rem;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primario);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- SECCIÓN HERO (PRINCIPAL) --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    padding: 80px 5% 0; /* Espacio para el header fijo y padding lateral */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-texto);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: #007bb5;
+    color: white;
+}
+
+/* --- SECCIÓN SERVICIOS --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--color-superficie);
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--color-primario);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 168, 255, 0.1);
+}
+.service-icon {
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+}
+.service-card h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* --- SECCIÓN EQUIPO DESTACADO --- */
+#featured-product {
+    background-color: var(--color-superficie);
+    padding: 3.5rem 0; /* Reducimos el padding vertical */
+}
+.featured-content {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr; /* Hacemos la columna de la imagen más pequeña */
+    align-items: center;
+    gap: 2.5rem; /* Reducimos el espacio entre imagen y texto */
+}
+.featured-image img {
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.featured-text h3 {
+    color: var(--color-primario);
+    font-size: 1.6rem; /* Reducimos el tamaño del título */
+    margin-bottom: 1rem;
+}
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+.features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem; /* Reducimos el tamaño de la lista */
+    color: var(--color-texto);
+}
+.features-list svg {
+    color: var(--color-primario);
+    margin-right: 10px;
+}
+
+/* --- SECCIÓN SOBRE NOSOTROS --- */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+.about-image img {
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.about-text h3 {
+    color: var(--color-primario);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* --- SECCIÓN CONTACTO --- */
+#contact {
+    background-color: var(--color-superficie);
+}
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #0c0c0c;
+    border-top: 1px solid var(--color-superficie);
+}
+.footer p {
+    margin: 0;
+    color: var(--color-texto-secundario);
+}
+
+/* --- ANIMACIONES AL SCROLL --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- MENÚ HAMBURGUESA Y RESPONSIVE DESIGN --- */
+.hamburger {
+    display: none; /* Oculto en escritorio */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Empieza oculto fuera de la pantalla */
+        width: 70%;
+        height: 100vh;
+        background-color: var(--color-superficie);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s ease-in-out;
+        gap: 2rem;
+    }
+    .nav-links.active {
+        right: 0; /* Se muestra al activar */
+    }
+    .nav-links a { margin: 0; font-size: 1.2rem; }
+
+    .hamburger { display: block; }
+    .hamburger.is-active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .about-content,
+    .featured-content { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* --- ESTILOS PÁGINA DE OFERTAS --- */
+.offers-hero {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    text-align: center;
+    background-color: var(--color-superficie);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--color-superficie);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #2a2a2a;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 168, 255, 0.1);
+}
+
+.product-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+}
+
+.product-content h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.product-content p {
+    flex-grow: 1; /* Empuja el precio y el botón hacia abajo */
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primario);
+    margin: 1rem 0;
+}
