@@ -253,6 +253,12 @@ img {
     margin: 0 auto;
 }
 
+.contact-info {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-top: 1rem;
+}
+
 /* --- FOOTER --- */
 .footer {
     text-align: center;
